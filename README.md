@@ -1,2 +1,2 @@
 # DynamicSite
-计划集成SpringMVC Hibernate
+框架SpringMVC 5.0.5
