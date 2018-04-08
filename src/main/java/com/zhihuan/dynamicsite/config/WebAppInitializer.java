@@ -1,6 +1,9 @@
 package com.zhihuan.dynamicsite.config;
 
+import org.sitemesh.config.ConfigurableSiteMeshFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {
@@ -13,5 +16,11 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        ConfigurableSiteMeshFilter siteMeshFilter=new ConfigurableSiteMeshFilter();
+        return new Filter[]{siteMeshFilter};
     }
 }
